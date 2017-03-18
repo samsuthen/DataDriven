@@ -1,0 +1,46 @@
+
+Download JXL jar : https://mvnrepository.com/artifact/net.sourceforge.jexcelapi/jxl/2.6.12
+
+Place it in ur project and make it to >> Build Path
+
+Than start write below scripts in new class file
+
+/////////////////////////////// Program - To Read Excel //////////////////// 
+
+import java.io.File;
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+
+public class Data
+{
+	
+	public static String retrieve(int i,int j)
+	{
+	String val = "";
+		try
+		{
+			// find -- file - java file handle
+			// Convert - file into workbook
+			// Find -- sheet in workbook
+			// Find -- cell in sheet
+			File inputdata = new File("./inputdaa/data.xls");
+			Workbook w = Workbook.getWorkbook(inputdata);
+			Sheet s = w.getSheet(0);
+			// i - Column ;; j - Row
+			Cell c = s.getCell(i,j);
+			val = c1.getContents();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();	
+		}
+	
+	return val;
+	}
+
+	public static void main(String[] args)
+	{
+		System.out.println("Value ; "+retrieve(1,1))
+	}
+}
